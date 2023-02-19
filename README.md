@@ -1,31 +1,48 @@
-#クローンする
+# クローンする
+```bash
 git clone https://github.com/Inaba-Shintaro/docker-laravel-handson.git
+```
 
-#appコンテナに入る
+# appコンテナに入る
+```bash
 docker-compose exec app bash
+```
 
-#composerのインストール
+# composerのインストール
+```bash
 composer install
+```
 
-#.env.exampleファイルをコピーして.envにする
+# .env.exampleファイルをコピーして.envにする
+```bash
 cp .env.example .env
+```
 
-#APP_KEYをジェネレート
+# APP_KEYをジェネレート
+```bash
 php artisan key:generate
+```
 
-#ストレージをリンク
+# ストレージをリンク
+```bash
 php artisan storage:link
+```
 
-#マイグレートできればおk
+# マイグレートできればおk
+```bash
 php artisan migrate
+```
 
-#コンテナから出る
+# コンテナから出る
+```bash
 exit
+```
 
-
-#開発
+# 開発
 docker-compose.ymlがあるディレクトリで
+```bash
 docker-compose up -d
+```
 
-#ローカルホスト
+# ローカルホストで表示されるはず、、、
 http://localhost:8080/
