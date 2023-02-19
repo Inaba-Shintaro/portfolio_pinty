@@ -47,3 +47,12 @@ docker-compose up -d
 
 # ローカルホストで表示されるはず、、、
 http://localhost:8080/
+
+artisanコマンドを打つときは
+
+```bash
+docker-compose exec app bash
+```
+でappコンテナに入ってから
+コマンドをうとう
+
