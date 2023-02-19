@@ -2,6 +2,7 @@
 ```bash
 git clone https://github.com/Inaba-Shintaro/docker-laravel-handson.git
 ```
+*dokcerの起動を忘れずに
 
 # appコンテナに入る
 ```bash
