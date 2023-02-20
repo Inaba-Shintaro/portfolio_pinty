@@ -37,4 +37,18 @@
 
 @include('layouts.pageHeader',['pageHeader' => 'コメント'])
 
+@auth
+<form action="{{ route('comment.store', ['post_id' => $post->id])}}" method="post" enctype="multipart/form-data">
+  @csrf
+  @include('comments.form',['post' => $post, 'btnTxt' => "コメント"])
+</form>
+@endauth
+
+@if($post->comments != null)
+@foreach ($post->comments as $comment)
+@include('comments.comment',['comment' => $comment])
+<hr>
+@endforeach
+@endif
+
 @endsection
