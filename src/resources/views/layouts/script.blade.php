@@ -3,6 +3,7 @@
 
 <!-- MDB -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+
 <!-- Javascript API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSwkeiyML043J2KMEZLMmO2pqej7L4FNM&callback=initMap" async defer></script>
 
