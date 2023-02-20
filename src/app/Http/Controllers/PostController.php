@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+//use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class PostController extends Controller
 {
@@ -29,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -40,7 +42,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+        $post->user_id = Auth::id();
+        $post->fill($request->except('image'));
+
+        // if ($request->image) {
+        //     $uploaded_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        //     $post->image = $uploaded_url;
+        // }
+
+        $post->save();
+        return redirect()->route('post.index');
     }
 
     /**
