@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('post.index');
     Route::resource('post', PostController::class, ['only' => ['create', 'store', 'show', 'edit', 'update', 'destroy']]);
+
+    Route::get('/mypage/{user}', [UserController::class, 'mypage'])->name('mypage');
+    Route::get('/mypage/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/mypage/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/mypage/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
