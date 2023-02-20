@@ -23,7 +23,7 @@
 <div class="row">
   <div class="col-md-8 d-md-flex align-items-center col-12">
     <p class="fs-3 fw-bold me-auto mb-md-0 mb-2">{{$post->title}}</p>
-    
+    @include('layouts.userIcon', ['record' => $post->user])
     <div class="mb-2 mb-md-0"></div>
     @auth
     @if(Auth::id() == $post->user_id)

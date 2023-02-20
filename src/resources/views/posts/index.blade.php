@@ -24,9 +24,11 @@
   @foreach ($users as $user)
   <div class="col-md-4 col-12 mb-4">
     <div class="card">
-
-
-
+      @isset ($user->image)
+      <img src="{{$user->image}}" class="card-img-top cardImage" alt="...">
+      @else
+      <img src="{{asset('images/default.png')}}" class="card-img-top cardImage" alt="...">
+      @endisset
       <div class="card-body">
         <a href="" class="btn btn-primary btn-rounded showBtn text-lowercase" role="button">{{$user->name}}さんのマイページへ</a>
       </div>
