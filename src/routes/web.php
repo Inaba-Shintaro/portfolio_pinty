@@ -25,9 +25,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/', [PostController::class, 'index'])->name('post.index');
+Route::resource('post', PostController::class, ['only' => ['create', 'store', 'show', 'edit', 'update', 'destroy']]);
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [PostController::class, 'index'])->name('post.index');
-    Route::resource('post', PostController::class, ['only' => ['create', 'store', 'show', 'edit', 'update', 'destroy']]);
+    // Route::get('/', [PostController::class, 'index'])->name('post.index');
+    // Route::resource('post', PostController::class, ['only' => ['create', 'store', 'show', 'edit', 'update', 'destroy']]);
 
     Route::post('/post/{post_id}/comment', [CommentController::class, 'store'])->name('comment.store');
     Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
