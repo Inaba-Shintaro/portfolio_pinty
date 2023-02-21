@@ -39,5 +39,5 @@
 
 </div>
 @endauth
-
+{{ $posts->appends(request()->input())->links() }}
 @endsection
